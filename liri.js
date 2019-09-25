@@ -12,10 +12,7 @@ var axios = require('axios');
 
 // Spotify =================================
 
-var spotify = new Spotify ({
-    id: keys.spotifyKeys.id,
-    secret: keys.spotifyKeys.secret
-});
+var spotify = new Spotify (keys.spotify);
 
 var getArtistNames = function(artist) {
     return artist.name;
@@ -27,8 +24,8 @@ spotify.search( {type: 'track', query: songName},
         if ( err ) {
             return console.log('Error occurred: ' + err);
         }
-        console.log("ARTIST NAME");
-        console.log(data.tracks.items[0].artists[0].name);
+        // console.log("ARTIST NAME");
+        // console.log(data.tracks.items[0].artists[0].name);
 
         var songs = data.tracks.items;
         for (var i=0 ; i < songs.length ; i++ ) {
@@ -73,10 +70,22 @@ var getMeEvents = function(artist) {
     request('https://rest.bandsintown.com/artists/' + artist + '/events?app_id=' + keys.bandintownKeys.id,
         function (error, response, body) {
             if (!error && response.statusCode == 200) {
-                console.log(JSON.parse(body));
-            }
-    });
-}
+
+                // console.log(JSON.parse(body));
+                console.log("ARTIST: " + artist);
+                var concerts = JSON.parse(body);
+                for (var i=0 ; i < concerts.length ; i++ ) {
+                    console.log('Venue name: ' + concerts[i].venue['name']);
+                    console.log('Venue location: ' + concerts[i].venue['city'] + ', ' + concerts[i].venue['country']);
+                    console.log('Event date: ' + moment(concerts[i].datetime).format('MM/DD/YYYY'));
+
+                console.log('-----------------------------------');
+                } // end for
+            } // end if
+    }); // end request
+} // end getMeEvents
+
+    // argv.slice(3).join(" ");
 
 // RANDOM TEXT FILE PROCESSING ==============
 
@@ -90,7 +99,7 @@ var doWhatItSays = function() {
             pick(dataArr[0]);
         }
     });
-}
+} // end doWhatItSays
 
 // SWITCH STATEMENT PROCESSING USER ARGUMENTS ======
 
@@ -98,18 +107,29 @@ var pick = function(caseData, functionData) {
     switch(caseData) {
         case 'spotify-this-song' :
             console.log("CASE - SPOTIFY");
-            getMeSpotify(functionData);
+            // check if user entered a song
+            if (functionData.length === 0) {
+                getMeSpotify('The Sign') 
+            }
+            else { 
+                getMeSpotify(functionData);
+            }
             break;
         case 'movie-this' : 
-            console.log("CASE - OMDB")
-            getMeMovie(functionData);
+            console.log("CASE - OMDB");
+            // check if the user entered a movie
+            if (functionData.length === 0) {
+                getMeMovie('Mr. Nobody')
+            } else {
+                getMeMovie(functionData);
+            }
             break;
         case 'concert-this' : 
             console.log("CASE - CONCERT")
             getMeEvents(functionData);
             break;
         case 'do-what-it-says' :
-            console.log("CASE - JUST DO IT")
+            console.log("CASE - GET TEXT FROM FILE")
             doWhatItSays();
             break;
         default:
@@ -119,10 +139,9 @@ var pick = function(caseData, functionData) {
 
 // RUN THIS FUNCTION WITH USER INPUT
 var runThis = function(argOne, argTwo) {
-    console.log("RUN THIS FUNCTION");
+    // console.log("RUN FUNCTION");
     pick(argOne,argTwo);
 }
 
 // PROCESS THE USER'S INPUT
-runThis(process.argv[2], process.argv[3]);
-
+runThis(process.argv[2], process.argv.slice(3).join(" "));
