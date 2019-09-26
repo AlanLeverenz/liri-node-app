@@ -70,7 +70,7 @@ https://github.com/alanleverenz/liri-node-app/blob/master/images/concert-this-co
 
 
 ## Technologies
-Here are the NPM modules, databases, functions, and console.log used by this app:
+Here are this app's NPM modules, databases, functions, and sample console/writeFile output:
 
 #### NPM Modules
 * node-spotify-api
@@ -98,6 +98,7 @@ Here are the NPM modules, databases, functions, and console.log used by this app
 * __appendLog.__ Appends the 'log.txt' file with response data.
 
 #### console.log and writeFile output
+
 ARTIST: Beach Boys
 0
 Venue name: Auditorium Parco della Musica
