@@ -4,11 +4,9 @@ require("dotenv").config();
 
 var keys = require("./keys.js");
 var Spotify = require('node-spotify-api');
-var request = require('request');
 var fs = require('fs');
 var moment = require('moment');
 var axios = require('axios');
-
 
 // Spotify =================================
 
@@ -24,68 +22,94 @@ spotify.search( {type: 'track', query: songName},
         if ( err ) {
             return console.log('Error occurred: ' + err);
         }
-        // console.log("ARTIST NAME");
-        // console.log(data.tracks.items[0].artists[0].name);
 
         var songs = data.tracks.items;
         for (var i=0 ; i < songs.length ; i++ ) {
-            console.log(i);
-            console.log('artist(s): ' + songs[i].artists.map(getArtistNames));
-            console.log('song name: ' + songs[i].name);
-            console.log('preview song: ' + songs[i].preview_url);
-            console.log('album: ' + songs[i].album.name);
-            console.log('-----------------------------------');
+            var songText = 
+            i + '\n' + 
+            'artist(s): ' + songs[i].artists.map(getArtistNames) + '\n' +
+            'song name: ' + songs[i].name + '\n' + 
+            'preview song: ' + songs[i].preview_url + '\n' + 
+            'album: ' + songs[i].album.name + '\n' + 
+            '-----------------------------------'
+            ;
+            console.log(songText);
+            appendLog(songText);
         }
     });
 }
 
-// OMDB ==============================
+// OMDB ============================== AXIOS
 
 var getMeMovie = function(movieName) {
-
-    request('http://www.omdbapi.com/?apikey=' + keys.omdbKeys.id + '&t=' + movieName + '&y=&plot=short&r=json',
-        function (error, response, body) {
-            if (!error && response.statusCode == 200) {
-
-                var jasonData = JSON.parse(body);
-                console.log('Title: ' + jasonData.Title);
-                console.log('Year: ' + jasonData.Year);
-                console.log('Rated: ' + jasonData.Rated);
-                console.log('IMDB Rating: ' + jasonData.imdbRating);
-                console.log('Country: ' + jasonData.Country);
-                console.log('Production: ' + jasonData.Production);
-                console.log('Language: ' + jasonData.Language);
-                console.log('Plot: ' + jasonData.Plot);
-                console.log('Actors: ' + jasonData.Actors);
-                console.log('Rotten tomatoes rating: ' + jasonData.Ratings[1]["Value"]);
-                console.log('Awards: ' + jasonData.Awards);
-            }
-    });
+    axios
+    .get('http://www.omdbapi.com/?apikey=' + keys.omdbKeys.id + '&t=' + movieName + '&y=&plot=short&r=json')
+    .then(function(response) {
+        var movieData = response.data;
+        var movieText = 
+            'Title: ' + movieData.Title + '\n' + 
+            'Year: ' + movieData.Year + '\n' + 
+            'Rated: ' + movieData.Rated + '\n' + 
+            'IMDB Rating: ' + movieData.imdbRating + '\n' + 
+            'Country: ' + movieData.Country + '\n' + 
+            'Production: ' + movieData.Production + '\n' + 
+            'Language: ' + movieData.Language + '\n' + 
+            'Plot: ' + movieData.Plot + '\n' + 
+            'Actors: ' + movieData.Actors + '\n' + 
+            'Rotten tomatoes rating: ' + movieData.Ratings[1]["Value"] + '\n' + 
+            'Awards: ' + movieData.Awards + '\n' + 
+        '-----------------------------------'
+        ;
+        console.log(movieText);
+        appendLog(movieText);
+    })
+    .catch(function(error) {
+        if (error.response) {
+        console.log(error.response.data);
+        console.log(error.response.status);
+        console.log(error.response.headers);
+        } else if (error.request) {
+        console.log(error.request);
+        } else {
+        console.log("Error", error.message);
+        }
+        console.log(error.config);
+  });
 }
 
 // BANDS IN TOWN =============================
 
 var getMeEvents = function(artist) {
-
-    request('https://rest.bandsintown.com/artists/' + artist + '/events?app_id=' + keys.bandintownKeys.id,
-        function (error, response, body) {
-            if (!error && response.statusCode == 200) {
-
-                // console.log(JSON.parse(body));
-                console.log("ARTIST: " + artist);
-                var concerts = JSON.parse(body);
-                for (var i=0 ; i < concerts.length ; i++ ) {
-                    console.log('Venue name: ' + concerts[i].venue['name']);
-                    console.log('Venue location: ' + concerts[i].venue['city'] + ', ' + concerts[i].venue['country']);
-                    console.log('Event date: ' + moment(concerts[i].datetime).format('MM/DD/YYYY'));
-
-                console.log('-----------------------------------');
-                } // end for
-            } // end if
-    }); // end request
-} // end getMeEvents
-
-    // argv.slice(3).join(" ");
+    axios
+    .get('https://rest.bandsintown.com/artists/' + artist + '/events?app_id=' + keys.bandintownKeys.id)
+    .then(function(response) {
+        console.log("ARTIST: " + artist);
+        // console.log(response.data);
+        var concerts = response.data;
+        for (var i=0 ; i < concerts.length ; i++ ) {
+            var concertText = 
+                i + '\n' +
+                'Venue name: ' + concerts[i].venue['name'] + '\n' + 
+                'Venue location: ' + concerts[i].venue['city'] + ', ' + concerts[i].venue['country'] + '\n' +
+                'Event date: ' + moment(concerts[i].datetime).format('MM/DD/YYYY') + '\n' +
+                '-----------------------------------';
+            console.log(concertText);
+            appendLog(concertText);
+        } // end for
+    })
+    .catch(function(error) {
+        if (error.response) {
+        console.log(error.response.data);
+        console.log(error.response.status);
+        console.log(error.response.headers);
+        } else if (error.request) {
+        console.log(error.request);
+        } else {
+        console.log("Error", error.message);
+        }
+        console.log(error.config);
+    });
+}
 
 // RANDOM TEXT FILE PROCESSING ==============
 
@@ -98,6 +122,7 @@ var doWhatItSays = function() {
         } else if (dataArr.length == 1){
             pick(dataArr[0]);
         }
+        appendLog(data);
     });
 } // end doWhatItSays
 
@@ -135,7 +160,7 @@ var pick = function(caseData, functionData) {
         default:
             console.log('LIRI does not know that');
     }   
-}
+} // pick function
 
 // RUN THIS FUNCTION WITH USER INPUT
 var runThis = function(argOne, argTwo) {
@@ -143,5 +168,16 @@ var runThis = function(argOne, argTwo) {
     pick(argOne,argTwo);
 }
 
-// PROCESS THE USER'S INPUT
+// APPEND LOG FILE FUNCTIONS
+var appendLog = function(data) {
+    var logFile = 'log.txt';
+    fs.appendFile(logFile, data, function(err) {
+    if (err) {
+        console.log(err);
+        }
+    });
+}  // end appendLog function
+
+// PROCESS THE USER'S INPUT ============
 runThis(process.argv[2], process.argv.slice(3).join(" "));
+
