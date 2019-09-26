@@ -97,8 +97,8 @@ Here are this app's NPM modules, databases, functions, and sample console/writeF
 * __runThis.__ Processes the user input and calls the pick function.
 * __appendLog.__ Appends the 'log.txt' file with response data.
 
-#### console.log and writeFile output
-
+#### console.log and log file sample output
+`
 ARTIST: Beach Boys
 0
 Venue name: Auditorium Parco della Musica
@@ -115,6 +115,8 @@ Venue name: Various Venues
 Venue location: Norwich, United Kingdom
 Event date: 10/18/2019
 -----------------------------------
+`
 
+### Author
 This project was a single-person effort. -- *Alan Leverenz*
 
