@@ -1,8 +1,8 @@
 # liri-node-app (LIRI BOT)
-Language Interpretation and Recognition Interface - Spotify, BandsInTown, OMDB
+Language Interpretation and Recognition Interface to Spotify, BandsInTown, and OMDB
 
 ## What LIRI BOT does
-Liri-node-app is a browser-less Node.js application. It provides instant information on songs, movies, and events with just a few search words.
+Liri-node-app is a browser-less Node.js application that utilizes NPM modules. It provides instant information on songs, movies, and events with just a few search words.
 
 ## Overview
 The LIRI BOT app captures user input for searching through Spotify, Bands in Town, and OMDB databases for matching songs, events, and movies, respectively. Its Javascript code is contained in a single .js file. There is a random.txt file that contains spotify search instructions, and a logfile *(log.txt)* that records the response data. 
@@ -76,6 +76,7 @@ Here are this app's NPM modules, databases, functions, and sample console/writeF
 * node-spotify-api
 * axios
 * moment
+* dotenv
 * fs
 
 #### Databases
