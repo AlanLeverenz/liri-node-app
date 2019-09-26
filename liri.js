@@ -84,6 +84,7 @@ var getMeEvents = function(artist) {
     .get('https://rest.bandsintown.com/artists/' + artist + '/events?app_id=' + keys.bandintownKeys.id)
     .then(function(response) {
         console.log("ARTIST: " + artist);
+        appendLog("ARTIST: " + artist);
         // console.log(response.data);
         var concerts = response.data;
         for (var i=0 ; i < concerts.length ; i++ ) {
