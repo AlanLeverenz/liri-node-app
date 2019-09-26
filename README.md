@@ -27,7 +27,8 @@ In place of [search] enter your search word(s).
 Here are screenshots of response data as it appears in the console.
 
 #### spotify-this-song The Piano Has Been Drinking
-./spotify-this-console.JPG
+https://github.com/alanleverenz/liri-node-app/blob/master/spotify-this-console1.JPG
+
 
 ## Technologies
 Here are the NPM modules, databases, console.log output, and functions used by this app:
