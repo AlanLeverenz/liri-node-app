@@ -26,15 +26,13 @@ In place of [search] enter your search word(s).
 ## Sample Terminal output
 Here are screenshots of response data as it appears in the console.
 
-#### Spotify
+### Spotify
 
 `node liri spotify-this-song lucy in the sky with diamonds`
 
 First four results:
 
 https://github.com/alanleverenz/liri-node-app/blob/master/spotify-this-console1.JPG
-
-Format: ![Spotify] url(./spotify-this-console1.JPG)
 
 Last four results:
 
@@ -46,7 +44,7 @@ https://github.com/alanleverenz/liri-node-app/blob/master/spotify-this-insert1.J
 
 https://github.com/alanleverenz/liri-node-app/blob/master/spotify-this-insert2.JPG
 
-#### Random text file instructions
+### Random text file instructions
 
 `node liri do-what-it-says`
 
@@ -54,7 +52,7 @@ This input processes instructions in the random.txt file, which is to search Spo
 
 https://github.com/alanleverenz/liri-node-app/blob/master/do-what-it-says-console.JPG
 
-#### OMDB
+### OMDB
 
 `node liri movie-this avatar`
 
@@ -64,7 +62,7 @@ If you don't include a search term, the application will default to *Mr. Nobody*
 
 https://github.com/alanleverenz/liri-node-app/blob/master/movie-this-insert.JPG
 
-#### BandsInTown
+### BandsInTown
 
 `node liri concert-this beach boys`
 
