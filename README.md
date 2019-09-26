@@ -32,17 +32,17 @@ Here are screenshots of response data as it appears in the console.
 
 First four results:
 
-https://github.com/alanleverenz/liri-node-app/blob/master/spotify-this-console1.JPG
+https://github.com/alanleverenz/liri-node-app/blob/master/images/spotify-this-console1.JPG
 
 Last four results:
 
-https://github.com/alanleverenz/liri-node-app/blob/master/spotify-this-console2.JPG
+https://github.com/alanleverenz/liri-node-app/blob/master/images/spotify-this-console2.JPG
 
 If you don't include a search term, the application will default to *The Sign*.
 
-https://github.com/alanleverenz/liri-node-app/blob/master/spotify-this-insert1.JPG
+https://github.com/alanleverenz/liri-node-app/blob/master/images/spotify-this-insert1.JPG
 
-https://github.com/alanleverenz/liri-node-app/blob/master/spotify-this-insert2.JPG
+https://github.com/alanleverenz/liri-node-app/blob/master/images/spotify-this-insert2.JPG
 
 ### Random text file instructions
 
@@ -50,23 +50,23 @@ https://github.com/alanleverenz/liri-node-app/blob/master/spotify-this-insert2.J
 
 This input processes instructions in the random.txt file, which is to search Spotify for the song, "I Want It That Way."
 
-https://github.com/alanleverenz/liri-node-app/blob/master/do-what-it-says-console.JPG
+https://github.com/alanleverenz/liri-node-app/blob/master/images/do-what-it-says-console.JPG
 
 ### OMDB
 
 `node liri movie-this avatar`
 
-https://github.com/alanleverenz/liri-node-app/blob/master/movie-this-console.JPG
+https://github.com/alanleverenz/liri-node-app/blob/master/images/movie-this-console.JPG
 
 If you don't include a search term, the application will default to *Mr. Nobody*.
 
-https://github.com/alanleverenz/liri-node-app/blob/master/movie-this-insert.JPG
+https://github.com/alanleverenz/liri-node-app/blob/master/images/movie-this-insert.JPG
 
 ### BandsInTown
 
 `node liri concert-this beach boys`
 
-https://github.com/alanleverenz/liri-node-app/blob/master/concert-this-console.JPG
+https://github.com/alanleverenz/liri-node-app/blob/master/images/concert-this-console.JPG
 
 
 ## Technologies

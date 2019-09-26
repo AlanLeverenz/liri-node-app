@@ -31,7 +31,7 @@ spotify.search( {type: 'track', query: songName},
             'song name: ' + songs[i].name + '\n' + 
             'preview song: ' + songs[i].preview_url + '\n' + 
             'album: ' + songs[i].album.name + '\n' + 
-            '-----------------------------------'
+            '-----------------------------------\n'
             ;
             console.log(songText);
             appendLog(songText);
@@ -58,7 +58,7 @@ var getMeMovie = function(movieName) {
             'Actors: ' + movieData.Actors + '\n' + 
             'Rotten tomatoes rating: ' + movieData.Ratings[1]["Value"] + '\n' + 
             'Awards: ' + movieData.Awards + '\n' + 
-        '-----------------------------------'
+        '-----------------------------------\n'
         ;
         console.log(movieText);
         appendLog(movieText);
@@ -92,7 +92,7 @@ var getMeEvents = function(artist) {
                 'Venue name: ' + concerts[i].venue['name'] + '\n' + 
                 'Venue location: ' + concerts[i].venue['city'] + ', ' + concerts[i].venue['country'] + '\n' +
                 'Event date: ' + moment(concerts[i].datetime).format('MM/DD/YYYY') + '\n' +
-                '-----------------------------------';
+                '-----------------------------------\n';
             console.log(concertText);
             appendLog(concertText);
         } // end for
