@@ -10,21 +10,23 @@ The LIRI BOT app captures user input for searching through Spotify, Bands in Tow
 ## How to run the app
 Follow these instructions for running the app:
 1. Fork the repository from this link: https://github.com/AlanLeverenz/liri-node-app.
-1. Open Terminal and navigate to the root directory of your repository folder.
+1. Open Terminal and navigate to your __liri-node-app__ repository folder.
 1. Use the following syntax after the Terminal prompt:
+
     `$ node liri [database] [search]`
-    In place of [database] enter one of the following:
-    * spotify-this-song
-    * movie-this
-    * concert-this
-    * do-what-it-says
-    In place of [search] enter your search word(s).
+
+In place of [database] enter one of the following options:
+* spotify-this-song
+* movie-this
+* concert-this
+* do-what-it-says
+
+In place of [search] enter your search word(s).
 
 ## Sample Terminal output
 Here are screenshots of response data as it appears in the console.
 
 #### spotify-this-song The Piano Has Been Drinking
-![GitHub Logo](/spotify-this-console.JPG)
 /spotify-this-console.JPG
 
 ## Technologies
