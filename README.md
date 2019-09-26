@@ -98,6 +98,7 @@ Here are this app's NPM modules, databases, functions, and sample console/writeF
 * __appendLog.__ Appends the 'log.txt' file with response data.
 
 #### console.log and writeFile output
+
 ARTIST: Beach Boys
 0
 Venue name: Auditorium Parco della Musica
