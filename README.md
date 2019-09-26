@@ -70,7 +70,7 @@ https://github.com/alanleverenz/liri-node-app/blob/master/images/concert-this-co
 
 
 ## Technologies
-Here are the NPM modules, databases, console.log output, and functions used by this app:
+Here are the NPM modules, databases, functions, and console.log used by this app:
 
 #### NPM Modules
 * node-spotify-api
@@ -96,6 +96,24 @@ Here are the NPM modules, databases, console.log output, and functions used by t
     * do-what-it-says
 * __runThis.__ Processes the user input and calls the pick function.
 * __appendLog.__ Appends the 'log.txt' file with response data.
+
+#### console.log and writeFile output
+ARTIST: Beach Boys
+0
+Venue name: Auditorium Parco della Musica
+Venue location: Roma, Italy
+Event date: 09/30/2019
+-----------------------------------
+1
+Venue name: Auditorium Teatro Manzoni
+Venue location: Castel Guelfo Di Bologna, Italy
+Event date: 10/01/2019
+-----------------------------------
+2
+Venue name: Various Venues
+Venue location: Norwich, United Kingdom
+Event date: 10/18/2019
+-----------------------------------
 
 This project was a single-person effort. -- *Alan Leverenz*
 

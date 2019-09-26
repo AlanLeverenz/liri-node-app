@@ -1,4 +1,5 @@
-﻿0
+﻿ARTIST: Beach Boys
+0
 Venue name: Auditorium Parco della Musica
 Venue location: Roma, Italy
 Event date: 09/30/2019
