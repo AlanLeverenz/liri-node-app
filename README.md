@@ -5,7 +5,7 @@ Language Interpretation and Recognition Interface - Spotify, BandsInTown, OMDB
 Liri-node-app is a browser-less Node.js application. It provides instant information on songs, movies, and events with just a few search words.
 
 ## Overview
-The LIRI BOT app captures user input for searching through Spotify, Bands in Town, and OMDB databases for matching songs, events, and movies, respectively. Its Javascript code is contained in a single .js file. There is a random.txt file that contains spotify search instructions, and a logfile that records the response data. 
+The LIRI BOT app captures user input for searching through Spotify, Bands in Town, and OMDB databases for matching songs, events, and movies, respectively. Its Javascript code is contained in a single .js file. There is a random.txt file that contains spotify search instructions, and a logfile *(log.txt)* that records the response data. 
 
 ## How to run the app
 Follow these instructions for running the app:
@@ -26,9 +26,50 @@ In place of [search] enter your search word(s).
 ## Sample Terminal output
 Here are screenshots of response data as it appears in the console.
 
-#### spotify-this-song lucy in the sky with diamonds
+#### Spotify
+
+`node liri spotify-this-song lucy in the sky with diamonds`
+
+First four results:
+
 https://github.com/alanleverenz/liri-node-app/blob/master/spotify-this-console1.JPG
-./spotify-this-console1.JPG
+
+Format: ![Spotify] url(./spotify-this-console1.JPG)
+
+Last four results:
+
+https://github.com/alanleverenz/liri-node-app/blob/master/spotify-this-console2.JPG
+
+If you don't include a search term, the application will default to *The Sign*.
+
+https://github.com/alanleverenz/liri-node-app/blob/master/spotify-this-insert1.JPG
+
+https://github.com/alanleverenz/liri-node-app/blob/master/spotify-this-insert2.JPG
+
+#### Random text file instructions
+
+`node liri do-what-it-says`
+
+This input processes instructions in the random.txt file, which is to search Spotify for the song, "I Want It That Way."
+
+https://github.com/alanleverenz/liri-node-app/blob/master/do-what-it-says-console.JPG
+
+#### OMDB
+
+`node liri movie-this avatar`
+
+https://github.com/alanleverenz/liri-node-app/blob/master/movie-this-console.JPG
+
+If you don't include a search term, the application will default to *Mr. Nobody*.
+
+https://github.com/alanleverenz/liri-node-app/blob/master/movie-this-insert.JPG
+
+#### BandsInTown
+
+`node liri concert-this beach boys`
+
+https://github.com/alanleverenz/liri-node-app/blob/master/concert-this-console.JPG
+
 
 ## Technologies
 Here are the NPM modules, databases, console.log output, and functions used by this app:
@@ -58,7 +99,5 @@ Here are the NPM modules, databases, console.log output, and functions used by t
 * __runThis.__ Processes the user input and calls the pick function.
 * __appendLog.__ Appends the 'log.txt' file with response data.
 
-
-
-
+This project was a single-person effort. -- *Alan Leverenz*
 
