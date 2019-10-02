@@ -29,3 +29,15 @@ Venue name: Konzerthaus Schüür
 Venue location: Luzern, Switzerland
 Event date: 10/22/2019
 -----------------------------------
+Title: Bridge of Spies
+Year: 2015
+Rated: PG-13
+IMDB Rating: 7.6
+Country: Germany, India, USA
+Production: Dreamworks Pictures
+Language: English, German, Russian
+Plot: During the Cold War, an American lawyer is recruited to defend an arrested Soviet spy in court, and then help the CIA facilitate an exchange of the spy for the Soviet captured American U2 spy plane pilot, Francis Gary Powers.
+Actors: Mark Rylance, Domenick Lombardozzi, Victor Verhaeghe, Mark Fichera
+Rotten tomatoes rating: 91%
+Awards: Won 1 Oscar. Another 30 wins & 99 nominations.
+-----------------------------------
